@@ -13,24 +13,12 @@ const Pokemon = () => {
 
     const fetchData = async () => {
         try {
-            // fetching the pokemon url
-            const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=350');
-            // console.log(response);
-
-            // forming an array of promises, each element of data.results
-            // data.results is an array of url's for each Pokemon
-            // prokemon Promises is an array of all promises for each Pokemon
+            const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=500');
             const pokemonPromises = response.data.results.map(async (currElement) => {
-                // fetching each url in res
                 const res = await axios.get(currElement.url);
                 return await res.data;
             });
-            // console.log(pokemonPromises);
-
-            // resolving the promises in pokemonPromises 
             const pokemonData = await Promise.all(pokemonPromises);
-            console.log(pokemonData);
-
             setPokemons(pokemonData);
         } catch (err) {
             console.log(err);
@@ -81,7 +69,7 @@ const Pokemon = () => {
                     placeholder='Search For Pokemon'
                     value={search.pokemon}
                     onChange={handleChange}
-                    className="font-semibold p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
+                    className="font-semibold p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64 sm:w-48"
                 />
                 <input
                     type="text"
@@ -90,7 +78,7 @@ const Pokemon = () => {
                     id='type'
                     value={search.type}
                     onChange={handleChange}
-                    className="font-semibold p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64"
+                    className="font-semibold p-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64 sm:w-48"
                 />
                 <button type='submit' className="bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
                     CLEAR
