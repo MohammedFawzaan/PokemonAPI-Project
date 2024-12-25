@@ -49,6 +49,7 @@ const Pokemon = () => {
         })
     }
 
+    // use Effect used
     useEffect(() => {
         fetchData();
     }, []);
