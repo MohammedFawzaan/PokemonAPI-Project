@@ -35,6 +35,9 @@ const Pokemon = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
+    }
+
+    function clear() {
         setSearch({
             pokemon: "",
             type: "",
@@ -81,11 +84,12 @@ const Pokemon = () => {
                     onChange={handleChange}
                     className="font-semibold p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full text-sm"
                 />
-                <button
-                    className="bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-colors duration-300 w-full text-sm">
-                    CLEAR
-                </button>
             </form>
+
+            <button onClick={clear}
+                className="bg-blue-500 text-white p-3 rounded-lg mb-4 hover:bg-blue-600 transition-colors duration-300 w-full text-sm">
+                CLEAR
+            </button>
 
             {/* Pokemon Cards Grid */}
             <div className="grid grid-cols-2 gap-3">

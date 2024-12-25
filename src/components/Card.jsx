@@ -5,7 +5,7 @@ const Card = ({ pokemon }) => {
     return (
         <Link
             to={`/pokemon/${pokemon.id}`}>
-            <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 text-white">
+            <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-xl overflow-hidden text-white">
                 <div className="w-full h-48 flex items-center justify-center bg-gradient-to-r from-gray-800 via-gray-900 to-black">
                     <img
                         src={pokemon.sprites.other.dream_world.front_default}
